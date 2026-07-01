@@ -35,9 +35,8 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          # Serve assets from /<repo-name>/ — filled in automatically.
-          VITE_BASE: /${{ github.event.repository.name }}/
+        # Custom domain (qobildev.uz) serves from the root, so base stays "/".
+        # (If you ever drop the domain, set VITE_BASE: /${{ github.event.repository.name }}/)
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
