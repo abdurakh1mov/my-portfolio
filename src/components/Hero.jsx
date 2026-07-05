@@ -1,10 +1,16 @@
-import { profile } from '../data.js'
+import { profile, heroPhones } from '../data.js'
+import { useLang } from '../i18n.jsx'
 import styles from './Hero.module.css'
 
-const PHONES = ['Lumen', 'Fathom', 'Nimbus']
-
 export default function Hero() {
-  const { hero, available, year } = profile
+  const { t } = useLang()
+  const { available, year } = profile
+  const { hero, ui, apps } = t
+
+  // Map hero phone ids to their localized display names.
+  const phoneNames = heroPhones.map(
+    (id) => apps.find((a) => a.id === id)?.name ?? id,
+  )
 
   return (
     <section id="top" className={`section ${styles.hero}`}>
@@ -12,7 +18,7 @@ export default function Hero() {
         {available && (
           <div className={styles.badge}>
             <span className={styles.pulse} />
-            Available for work · {year}
+            {ui.available} · {year}
           </div>
         )}
 
@@ -26,15 +32,15 @@ export default function Hero() {
 
         <div className={styles.actions}>
           <a href="#apps" className={styles.primary}>
-            Explore apps
+            {ui.exploreApps}
           </a>
           <a href="#contact" className={styles.secondary}>
-            Get in touch
+            {ui.getInTouch}
           </a>
         </div>
 
         <div className={styles.phones} aria-hidden="true">
-          {PHONES.map((name, i) => (
+          {phoneNames.map((name, i) => (
             <div key={name} className={styles.phone} data-index={i}>
               <div className={styles.screen}>{name}</div>
             </div>

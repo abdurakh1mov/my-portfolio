@@ -1,11 +1,14 @@
 import { stack } from '../data.js'
+import { useLang } from '../i18n.jsx'
 import styles from './Stack.module.css'
 
 export default function Stack() {
+  const { t } = useLang()
+
   return (
     <section id="stack" className="section container">
       <div className={styles.inner}>
-        <h2 className={styles.title}>My stack</h2>
+        <h2 className={styles.title}>{t.stackSection.title}</h2>
         <ul className={styles.tags}>
           {stack.map((tech) => (
             <li key={tech} className={styles.tag}>

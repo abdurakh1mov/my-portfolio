@@ -1,12 +1,14 @@
-import { experience } from '../data.js'
+import { useLang } from '../i18n.jsx'
 import styles from './Experience.module.css'
 
 export default function Experience() {
+  const { t } = useLang()
+
   return (
     <section id="work" className="section container">
-      <h2 className={styles.title}>Experience</h2>
+      <h2 className={styles.title}>{t.experienceSection.title}</h2>
       <ol className={styles.list}>
-        {experience.map((job) => (
+        {t.experience.map((job) => (
           <li key={job.company} className={styles.item}>
             <div className={styles.period}>{job.period}</div>
             <div>

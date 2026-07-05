@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import { profile, navLinks } from '../data.js'
+import { profile } from '../data.js'
+import { useLang } from '../i18n.jsx'
 import styles from './Nav.module.css'
 
 export default function Nav() {
+  const { lang, setLang, languages, t } = useLang()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -24,6 +26,22 @@ export default function Nav() {
 
   const close = () => setOpen(false)
 
+  const langSwitch = (
+    <div className={styles.langSwitch} role="group" aria-label="Language">
+      {languages.map((l) => (
+        <button
+          key={l.code}
+          type="button"
+          className={`${styles.langBtn} ${lang === l.code ? styles.langActive : ''}`}
+          aria-pressed={lang === l.code}
+          onClick={() => setLang(l.code)}
+        >
+          {l.label}
+        </button>
+      ))}
+    </div>
+  )
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.bar}`}>
@@ -33,20 +51,23 @@ export default function Nav() {
         </a>
 
         <nav className={styles.links} aria-label="Primary">
-          {navLinks.map((link) => (
+          {t.nav.map((link) => (
             <a key={link.href} href={link.href}>
               {link.label}
             </a>
           ))}
         </nav>
 
-        <a href="#contact" className={styles.cta}>
-          Hire me
-        </a>
+        <div className={styles.actions}>
+          {langSwitch}
+          <a href="#contact" className={styles.cta}>
+            {t.ui.hireMe}
+          </a>
+        </div>
 
         <button
           className={styles.burger}
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? t.ui.closeMenu : t.ui.openMenu}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
@@ -60,13 +81,14 @@ export default function Nav() {
         hidden={!open}
       >
         <nav className={styles.mobileLinks} aria-label="Mobile">
-          {navLinks.map((link) => (
+          {t.nav.map((link) => (
             <a key={link.href} href={link.href} onClick={close}>
               {link.label}
             </a>
           ))}
+          <div className={styles.mobileLang}>{langSwitch}</div>
           <a href="#contact" className={styles.mobileCta} onClick={close}>
-            Hire me
+            {t.ui.hireMe}
           </a>
         </nav>
       </div>

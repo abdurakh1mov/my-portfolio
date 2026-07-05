@@ -1,14 +1,15 @@
 import { profile, socials } from '../data.js'
+import { useLang } from '../i18n.jsx'
 import styles from './Contact.module.css'
 
 export default function Contact() {
+  const { t } = useLang()
+
   return (
     <footer id="contact" className={`section ${styles.contact}`}>
       <div className="container">
-        <h2 className={styles.title}>Let&apos;s build something</h2>
-        <p className={styles.subtitle}>
-          Available for senior roles &amp; freelance projects.
-        </p>
+        <h2 className={styles.title}>{t.contact.title}</h2>
+        <p className={styles.subtitle}>{t.contact.subtitle}</p>
 
         <div className={styles.actions}>
           <a href={`mailto:${profile.email}`} className={styles.email}>
@@ -28,7 +29,7 @@ export default function Contact() {
         </div>
 
         <p className={styles.copyright}>
-          © {profile.year} {profile.name}. Built with React.
+          © {profile.year} {profile.name}. {t.contact.copyright}
         </p>
       </div>
     </footer>
