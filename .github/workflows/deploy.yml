@@ -12,10 +12,12 @@ permissions:
   pages: write
   id-token: write
 
-# Let a newer push cancel an in-progress deploy instead of queuing.
+# Queue deploys instead of cancelling. Cancelling an in-progress Pages
+# deployment can leave it half-finished and make the next run fail with
+# "Deployment failed, try again later" — so we let in-flight deploys complete.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -27,7 +29,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
