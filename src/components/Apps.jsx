@@ -1,4 +1,4 @@
-import { appVisuals, appLogos } from '../data.js'
+import { appVisuals, appLogos, appLinks } from '../data.js'
 import { useLang } from '../i18n.jsx'
 import styles from './Apps.module.css'
 
@@ -14,7 +14,13 @@ export default function Apps() {
 
       <div className={styles.grid}>
         {t.apps.map((app) => (
-          <article key={app.id} className={styles.card}>
+          <a
+            key={app.id}
+            className={styles.card}
+            href={appLinks[app.id]}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className={styles.cardHead}>
               {appLogos[app.id] ? (
                 <img
@@ -33,12 +39,16 @@ export default function Apps() {
               <div>
                 <h3 className={styles.name}>{app.name}</h3>
                 <p className={styles.meta}>
-                  {app.category} · {app.rating}★
+                  {app.category}
+                  {app.rating ? ` · ${app.rating}★` : ''}
                 </p>
               </div>
             </div>
             <p className={styles.desc}>{app.description}</p>
-          </article>
+            {appLinks[app.id] && (
+              <span className={styles.storeLink}>{t.ui.viewOnStore} ↗</span>
+            )}
+          </a>
         ))}
       </div>
     </section>

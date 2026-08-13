@@ -6,8 +6,13 @@
  * shared across both languages.
  */
 
-import aiacademyLogo from './assets/aiacademy-logo.png'
-import himayaLogo from './assets/himaya-logo.png'
+import autouzIcon from './assets/autouz-icon.jpg'
+import aiacademyIcon from './assets/aiacademy-icon.jpg'
+import himayaIcon from './assets/himaya-icon.jpg'
+import topmasterIcon from './assets/topmaster-icon.jpg'
+import yuktashishIcon from './assets/yuktashish-icon.jpg'
+import yuktashishproIcon from './assets/yuktashishpro-icon.jpg'
+import shukronaIcon from './assets/shukrona-icon.jpg'
 
 /* ---- Language-agnostic profile & links ---- */
 export const profile = {
@@ -34,8 +39,9 @@ export const appVisuals = {
   aiacademy: 'linear-gradient(135deg, #34d399, #5eead4)',
   himaya: 'linear-gradient(135deg, #c59a5f, #0f2130)',
   topmaster: 'linear-gradient(135deg, #c084fc, #5eead4)',
-  dachaturizm: 'linear-gradient(135deg, #5eead4, #38bdf8)',
-  posox: 'linear-gradient(135deg, #5eead4, #c084fc)',
+  yuktashish: 'linear-gradient(135deg, #fbbf24, #f97316)',
+  yuktashishpro: 'linear-gradient(135deg, #f97316, #0f2130)',
+  shukrona: 'linear-gradient(135deg, #a78bfa, #f472b6)',
 }
 
 /*
@@ -44,8 +50,24 @@ export const appVisuals = {
  * would vanish on the dark card); full-bleed icons render edge to edge.
  */
 export const appLogos = {
-  aiacademy: { src: aiacademyLogo, padded: true },
-  himaya: { src: himayaLogo },
+  autouz: { src: autouzIcon },
+  aiacademy: { src: aiacademyIcon },
+  himaya: { src: himayaIcon },
+  topmaster: { src: topmasterIcon },
+  yuktashish: { src: yuktashishIcon },
+  yuktashishpro: { src: yuktashishproIcon },
+  shukrona: { src: shukronaIcon },
+}
+
+/* App Store links, keyed by project id. */
+export const appLinks = {
+  autouz: 'https://apps.apple.com/uz/app/auto-uz-avtomobillar-olami/id1670951057',
+  aiacademy: 'https://apps.apple.com/us/app/ovoz-ai-academy/id6795569313',
+  himaya: 'https://apps.apple.com/uz/app/himaya/id6796583412',
+  topmaster: 'https://apps.apple.com/uz/app/topmaster/id6502838564',
+  yuktashish: 'https://apps.apple.com/uz/app/yuktashish/id6768605504',
+  yuktashishpro: 'https://apps.apple.com/uz/app/yuktashish-pro/id6768605769',
+  shukrona: 'https://apps.apple.com/us/app/shukrona-academy-app/id6786992462',
 }
 
 /* Tech stack — names are the same in every language. */
@@ -97,6 +119,7 @@ export const content = {
       available: 'Available for work',
       exploreApps: 'Explore apps',
       getInTouch: 'Get in touch',
+      viewOnStore: 'View on the App Store',
     },
     hero: {
       lead: 'I build',
@@ -116,21 +139,20 @@ export const content = {
       title: 'Featured apps',
       subtitle: "A selection of what I've shipped.",
     },
-    // Per-app star ratings aren't on the résumé — kept as mock/placeholder values.
+    // Ratings come from the App Store; apps without enough reviews yet show none.
     apps: [
       {
         id: 'autouz',
         name: 'Auto.uz',
         category: 'Car marketplace',
-        rating: '4.8',
+        rating: '4.6',
         description:
-          'Marketplace where dealers and private sellers post listings; buyers search, filter, favorite and compare up to 20 cars.',
+          "Uzbekistan's car marketplace: search, filter and compare up to 20 cars, post and promote listings, browse dealers — plus insurance, EV-charging and fuel-station services and a vertical video feed.",
       },
       {
         id: 'aiacademy',
-        name: 'AI Academy',
+        name: 'Ovoz — AI Academy',
         category: 'Education / LMS',
-        rating: '4.8',
         description:
           'LMS app for AI Academy (Tashkent) serving four roles — admin, mentor, student and annotator — with a student voice-recording flow that builds an Uzbek TTS/STT speech corpus.',
       },
@@ -138,7 +160,6 @@ export const content = {
         id: 'himaya',
         name: 'Himaya',
         category: 'Device insurance',
-        rating: '4.7',
         description:
           'Device-insurance platform for the Uzbek market: agents register phones with IMEI checks and photo/video condition capture, while service staff assess claims and trigger payouts.',
       },
@@ -146,25 +167,30 @@ export const content = {
         id: 'topmaster',
         name: 'TopMaster',
         category: 'Barber booking',
-        rating: '4.9',
-        description:
-          'Book barbers in real time, view services and portfolios, and schedule with a calendar-based flow.',
-      },
-      {
-        id: 'dachaturizm',
-        name: 'DachaTurizm',
-        category: 'Cottage rentals',
-        rating: '4.7',
-        description:
-          'Owners publish summer cottages with photos, pricing and availability; renters search and browse detailed pages.',
-      },
-      {
-        id: 'posox',
-        name: 'Posox',
-        category: 'Store management',
         rating: '4.6',
         description:
-          'Business tool to track inventory, manage orders and monitor sales — with barcode scanning and dashboards.',
+          'Two-sided barber booking marketplace: clients find barbershops on the map and book appointments, while barbers manage schedules, client records, SMS reminders and revenue stats.',
+      },
+      {
+        id: 'yuktashish',
+        name: 'YukTashish',
+        category: 'Logistics / delivery',
+        description:
+          'Cargo delivery app for Uzbekistan: set pickup and drop-off points on the map, choose vehicle and cargo type, then track the driver live and chat in real time.',
+      },
+      {
+        id: 'yuktashishpro',
+        name: 'YukTashish Pro',
+        category: 'Logistics / driver app',
+        description:
+          'Driver side of the YukTashish platform: accept orders, run a step-by-step delivery flow, stream live location, manage wallet and payout cards, and chat with customers.',
+      },
+      {
+        id: 'shukrona',
+        name: 'Shukrona Academy',
+        category: 'Education / e-learning',
+        description:
+          'Closed e-learning platform for specialists working with autism (ASD): video courses with lessons, knowledge tests, progress tracking and certificates.',
       },
     ],
     about: {
@@ -224,6 +250,7 @@ export const content = {
       available: 'Открыт к работе',
       exploreApps: 'Смотреть приложения',
       getInTouch: 'Связаться',
+      viewOnStore: 'Открыть в App Store',
     },
     hero: {
       lead: 'Я создаю',
@@ -243,21 +270,20 @@ export const content = {
       title: 'Проекты',
       subtitle: 'Подборка того, что я выпустил.',
     },
-    // Рейтинги приложений отсутствуют в резюме — оставлены как заглушки.
+    // Рейтинги взяты из App Store; у приложений без отзывов рейтинг не показывается.
     apps: [
       {
         id: 'autouz',
         name: 'Auto.uz',
         category: 'Маркетплейс авто',
-        rating: '4.8',
+        rating: '4.6',
         description:
-          'Дилеры и частные продавцы публикуют объявления; покупателям — поиск, фильтры, избранное и сравнение до 20 автомобилей.',
+          'Автомаркетплейс Узбекистана: поиск, фильтры и сравнение до 20 автомобилей, публикация и продвижение объявлений, каталог дилеров — плюс страхование, зарядки для электромобилей и вертикальная видеолента.',
       },
       {
         id: 'aiacademy',
-        name: 'AI Academy',
+        name: 'Ovoz — AI Academy',
         category: 'Образование / LMS',
-        rating: '4.8',
         description:
           'LMS-приложение AI Academy (Ташкент) с четырьмя ролями — админ, ментор, студент и аннотатор — и записью голоса студентами для узбекского TTS/STT-корпуса.',
       },
@@ -265,7 +291,6 @@ export const content = {
         id: 'himaya',
         name: 'Himaya',
         category: 'Страхование устройств',
-        rating: '4.7',
         description:
           'Платформа страхования смартфонов для Узбекистана: агенты регистрируют устройства с проверкой IMEI и фото/видеофиксацией состояния, сервисные сотрудники оценивают страховые случаи и запускают выплаты.',
       },
@@ -273,25 +298,30 @@ export const content = {
         id: 'topmaster',
         name: 'TopMaster',
         category: 'Запись к барберам',
-        rating: '4.9',
-        description:
-          'Онлайн-запись к барберам, просмотр услуг и портфолио, удобное расписание на основе календаря.',
-      },
-      {
-        id: 'dachaturizm',
-        name: 'DachaTurizm',
-        category: 'Аренда дач',
-        rating: '4.7',
-        description:
-          'Хозяева публикуют дачи с фото, ценой и доступностью; арендаторам — поиск и детальные карточки объектов.',
-      },
-      {
-        id: 'posox',
-        name: 'Posox',
-        category: 'Управление магазином',
         rating: '4.6',
         description:
-          'Бизнес-инструмент для учёта товаров, управления заказами и аналитики продаж — со сканированием штрихкодов и дашбордами.',
+          'Двусторонний маркетплейс барбер-записи: клиенты находят барбершопы на карте и записываются, а барберы управляют расписанием, клиентской базой, SMS-напоминаниями и статистикой дохода.',
+      },
+      {
+        id: 'yuktashish',
+        name: 'YukTashish',
+        category: 'Логистика / доставка',
+        description:
+          'Приложение грузоперевозок для Узбекистана: точки погрузки и доставки на карте, выбор транспорта и типа груза, живое отслеживание водителя и чат в реальном времени.',
+      },
+      {
+        id: 'yuktashishpro',
+        name: 'YukTashish Pro',
+        category: 'Логистика / для водителей',
+        description:
+          'Приложение водителя платформы YukTashish: приём заказов, пошаговый процесс доставки, трансляция геопозиции, кошелёк и карты для выплат, чат с клиентами.',
+      },
+      {
+        id: 'shukrona',
+        name: 'Shukrona Academy',
+        category: 'Образование / e-learning',
+        description:
+          'Закрытая образовательная платформа для специалистов по РАС: видеокурсы с уроками, тесты знаний, отслеживание прогресса и сертификаты.',
       },
     ],
     about: {
