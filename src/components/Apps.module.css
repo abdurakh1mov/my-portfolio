@@ -80,10 +80,21 @@
   line-height: 1.6;
 }
 
-.storeLink {
+.cardLinks {
   margin-top: auto;
   padding-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.storeLink {
   color: var(--accent);
   font-size: 13px;
   font-weight: 600;
+  transition: opacity 0.2s var(--ease);
+}
+
+.storeLink:hover {
+  opacity: 0.75;
 }

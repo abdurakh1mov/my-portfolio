@@ -1,15 +1,9 @@
-import { heroPhones } from '../data.js'
 import { useLang } from '../i18n.jsx'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   const { t } = useLang()
-  const { hero, ui, apps } = t
-
-  // Map hero phone ids to their localized display names.
-  const phoneNames = heroPhones.map(
-    (id) => apps.find((a) => a.id === id)?.name ?? id,
-  )
+  const { hero, ui } = t
 
   return (
     <section id="top" className={`section ${styles.hero}`}>
@@ -31,13 +25,17 @@ export default function Hero() {
           </a>
         </div>
 
+        {/* Phone screenshot mock-ups — hidden until real screenshots are ready.
         <div className={styles.phones} aria-hidden="true">
-          {phoneNames.map((name, i) => (
-            <div key={name} className={styles.phone} data-index={i}>
-              <div className={styles.screen}>{name}</div>
-            </div>
-          ))}
+          {heroPhones
+            .map((id) => t.apps.find((a) => a.id === id)?.name ?? id)
+            .map((name, i) => (
+              <div key={name} className={styles.phone} data-index={i}>
+                <div className={styles.screen}>{name}</div>
+              </div>
+            ))}
         </div>
+        (re-enable by importing heroPhones from '../data.js') */}
       </div>
     </section>
   )

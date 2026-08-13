@@ -65,18 +65,45 @@ export const appLogos = {
   olbilet: { src: olbiletIcon },
 }
 
-/* App Store links, keyed by project id. */
+/*
+ * Store / web links, keyed by project id. Each entry may have `ios`,
+ * `android` and/or `web` — cards render a badge per available link.
+ * Missing `android` = the app is still in Play Store review.
+ */
 export const appLinks = {
-  autouz: 'https://apps.apple.com/uz/app/auto-uz-avtomobillar-olami/id1670951057',
-  aiacademy: 'https://apps.apple.com/us/app/ovoz-ai-academy/id6795569313',
-  csogboard: 'https://apps.apple.com/us/app/csog-board/id6795915735',
-  himaya: 'https://apps.apple.com/uz/app/himaya/id6796583412',
-  topmaster: 'https://apps.apple.com/uz/app/topmaster/id6502838564',
-  yuktashish: 'https://apps.apple.com/uz/app/yuktashish/id6768605504',
-  yuktashishpro: 'https://apps.apple.com/uz/app/yuktashish-pro/id6768605769',
-  shukrona: 'https://apps.apple.com/us/app/shukrona-academy-app/id6786992462',
-  // Not on the stores yet — link to the platform's website.
-  olbilet: 'https://olbilet.uz',
+  autouz: {
+    ios: 'https://apps.apple.com/uz/app/auto-uz-avtomobillar-olami/id1670951057',
+    android: 'https://play.google.com/store/apps/details?id=uz.auto.autouzapp',
+  },
+  aiacademy: {
+    ios: 'https://apps.apple.com/us/app/ovoz-ai-academy/id6795569313',
+  },
+  csogboard: {
+    ios: 'https://apps.apple.com/us/app/csog-board/id6795915735',
+  },
+  himaya: {
+    ios: 'https://apps.apple.com/uz/app/himaya/id6796583412',
+    android: 'https://play.google.com/store/apps/details?id=himayaapp.uz',
+  },
+  topmaster: {
+    ios: 'https://apps.apple.com/uz/app/topmaster/id6502838564',
+    android: 'https://play.google.com/store/apps/details?id=com.nest_app.ubarber',
+  },
+  yuktashish: {
+    ios: 'https://apps.apple.com/uz/app/yuktashish/id6768605504',
+    android: 'https://play.google.com/store/apps/details?id=uz.yuktashi.csog',
+  },
+  yuktashishpro: {
+    ios: 'https://apps.apple.com/uz/app/yuktashish-pro/id6768605769',
+    android: 'https://play.google.com/store/apps/details?id=uz.yuktashipro.csog',
+  },
+  shukrona: {
+    ios: 'https://apps.apple.com/us/app/shukrona-academy-app/id6786992462',
+    android: 'https://play.google.com/store/apps/details?id=uz.shukrona.academy',
+  },
+  olbilet: {
+    web: 'https://olbilet.uz',
+  },
 }
 
 /* Tech stack — names are the same in every language. */
@@ -128,8 +155,9 @@ export const content = {
       available: 'Available for work',
       exploreApps: 'Explore apps',
       getInTouch: 'Get in touch',
-      viewOnStore: 'View on the App Store',
-      visitSite: 'Visit website',
+      linkAppStore: 'App Store',
+      linkGooglePlay: 'Google Play',
+      linkWebsite: 'Website',
     },
     hero: {
       lead: 'I build',
@@ -274,8 +302,9 @@ export const content = {
       available: 'Открыт к работе',
       exploreApps: 'Смотреть приложения',
       getInTouch: 'Связаться',
-      viewOnStore: 'Открыть в App Store',
-      visitSite: 'Открыть сайт',
+      linkAppStore: 'App Store',
+      linkGooglePlay: 'Google Play',
+      linkWebsite: 'Сайт',
     },
     hero: {
       lead: 'Я создаю',

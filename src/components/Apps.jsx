@@ -13,48 +13,69 @@ export default function Apps() {
       </header>
 
       <div className={styles.grid}>
-        {t.apps.map((app) => (
-          <a
-            key={app.id}
-            className={styles.card}
-            href={appLinks[app.id]}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className={styles.cardHead}>
-              {appLogos[app.id] ? (
-                <img
-                  className={`${styles.icon} ${styles.logo} ${
-                    appLogos[app.id].padded ? styles.logoPadded : ''
-                  }`}
-                  src={appLogos[app.id].src}
-                  alt={`${app.name} logo`}
-                />
-              ) : (
-                <div
-                  className={styles.icon}
-                  style={{ background: appVisuals[app.id] }}
-                />
-              )}
-              <div>
-                <h3 className={styles.name}>{app.name}</h3>
-                <p className={styles.meta}>
-                  {app.category}
-                  {app.rating ? ` · ${app.rating}★` : ''}
-                </p>
+        {t.apps.map((app) => {
+          const links = appLinks[app.id] ?? {}
+          return (
+            <article key={app.id} className={styles.card}>
+              <div className={styles.cardHead}>
+                {appLogos[app.id] ? (
+                  <img
+                    className={`${styles.icon} ${styles.logo} ${
+                      appLogos[app.id].padded ? styles.logoPadded : ''
+                    }`}
+                    src={appLogos[app.id].src}
+                    alt={`${app.name} logo`}
+                  />
+                ) : (
+                  <div
+                    className={styles.icon}
+                    style={{ background: appVisuals[app.id] }}
+                  />
+                )}
+                <div>
+                  <h3 className={styles.name}>{app.name}</h3>
+                  <p className={styles.meta}>
+                    {app.category}
+                    {app.rating ? ` · ${app.rating}★` : ''}
+                  </p>
+                </div>
               </div>
-            </div>
-            <p className={styles.desc}>{app.description}</p>
-            {appLinks[app.id] && (
-              <span className={styles.storeLink}>
-                {appLinks[app.id].includes('apps.apple.com')
-                  ? t.ui.viewOnStore
-                  : t.ui.visitSite}{' '}
-                ↗
-              </span>
-            )}
-          </a>
-        ))}
+              <p className={styles.desc}>{app.description}</p>
+              <div className={styles.cardLinks}>
+                {links.ios && (
+                  <a
+                    className={styles.storeLink}
+                    href={links.ios}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.ui.linkAppStore} ↗
+                  </a>
+                )}
+                {links.android && (
+                  <a
+                    className={styles.storeLink}
+                    href={links.android}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.ui.linkGooglePlay} ↗
+                  </a>
+                )}
+                {links.web && (
+                  <a
+                    className={styles.storeLink}
+                    href={links.web}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.ui.linkWebsite} ↗
+                  </a>
+                )}
+              </div>
+            </article>
+          )
+        })}
       </div>
     </section>
   )
