@@ -17,7 +17,7 @@ import shukronaIcon from './assets/shukrona-icon.jpg'
 /* ---- Language-agnostic profile & links ---- */
 export const profile = {
   name: 'Qobil Abduraximov',
-  brand: 'qobil',
+  brand: 'Abduraximov Qobil',
   available: true,
   year: 2026,
   email: 'abduraximovqobil@mail.ru',

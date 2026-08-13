@@ -1,10 +1,9 @@
-import { profile, heroPhones } from '../data.js'
+import { heroPhones } from '../data.js'
 import { useLang } from '../i18n.jsx'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   const { t } = useLang()
-  const { available, year } = profile
   const { hero, ui, apps } = t
 
   // Map hero phone ids to their localized display names.
@@ -15,13 +14,6 @@ export default function Hero() {
   return (
     <section id="top" className={`section ${styles.hero}`}>
       <div className="container">
-        {available && (
-          <div className={styles.badge}>
-            <span className={styles.pulse} />
-            {ui.available} · {year}
-          </div>
-        )}
-
         <h1 className={styles.title}>
           {hero.lead} <span className={styles.accent}>{hero.accent}</span>
           <br />
