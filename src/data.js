@@ -260,21 +260,28 @@ export const content = {
     },
     experience: [
       {
-        period: '2024 — Now',
+        period: 'March 2026 — Now',
+        role: 'Flutter Developer',
+        company: 'CSOG',
+        summary:
+          "Building the company's mobile products end to end: Ovoz — AI Academy LMS, CSOG Board team kanban, YukTashish & YukTashish Pro logistics apps, Shukrona Academy e-learning and the OlBilet ticketing app with a custom seat-map engine; Bloc/Cubit, go_router, get_it/injectable, WebSocket realtime, Firebase.",
+      },
+      {
+        period: 'Feb 2026 — Now',
         role: 'Flutter Developer',
         company: 'Auto.uz',
         summary:
           'Migrated comparison & home modules to v2 API with typed errors and post-login bulk-merge; Bloc/Cubit + freezed, Firebase, push and Yandex Maps with uz/ru/en localization.',
       },
       {
-        period: '2023',
+        period: 'June 2024 — May 2025',
         role: 'Flutter Developer',
-        company: 'Ubarber',
+        company: 'TopMaster tech',
         summary:
           'Built scalable architecture with Domain-Driven Design, managed state with Bloc and Provider, and integrated APIs with Chopper and Retrofit.',
       },
       {
-        period: '2022 — 23',
+        period: 'Oct 2022 — May 2024',
         role: 'Software Engineer',
         company: 'DataSite Technology',
         summary:
@@ -407,21 +414,28 @@ export const content = {
     },
     experience: [
       {
-        period: '2024 — сейчас',
+        period: 'Март 2026 — сейчас',
+        role: 'Flutter разработчик',
+        company: 'CSOG',
+        summary:
+          'Разрабатываю мобильные продукты компании: LMS Ovoz — AI Academy, командный канбан CSOG Board, логистические приложения YukTashish и YukTashish Pro, платформу Shukrona Academy и билетное приложение OlBilet с собственным движком карты зала; Bloc/Cubit, go_router, get_it/injectable, WebSocket, Firebase.',
+      },
+      {
+        period: 'Фев 2026 — сейчас',
         role: 'Flutter разработчик',
         company: 'Auto.uz',
         summary:
           'Мигрировал модули сравнения и главного экрана на v2 API с типизированными ошибками и bulk-merge после логина; Bloc/Cubit + freezed, Firebase, push и Yandex Maps с локализацией uz/ru/en.',
       },
       {
-        period: '2023',
+        period: 'Июнь 2024 — Май 2025',
         role: 'Flutter разработчик',
-        company: 'Ubarber',
+        company: 'TopMaster tech',
         summary:
           'Масштабируемая архитектура на Domain-Driven Design, управление состоянием через Bloc и Provider, интеграция API через Chopper и Retrofit.',
       },
       {
-        period: '2022 — 23',
+        period: 'Окт 2022 — Май 2024',
         role: 'Software Engineer',
         company: 'DataSite Technology',
         summary:

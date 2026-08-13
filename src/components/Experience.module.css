@@ -19,9 +19,15 @@
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 22px;
+}
+
+/* Title row: role · company on the left, date range on the right. */
+.itemHead {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 18px;
+  flex-wrap: wrap;
 }
 
 .period {
@@ -29,8 +35,8 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
-  min-width: 92px;
-  flex-shrink: 0;
+  white-space: nowrap;
+  margin-left: auto;
 }
 
 .role {
@@ -41,12 +47,5 @@
 .summary {
   color: var(--text-muted);
   font-size: 14px;
-  margin-top: 4px;
-}
-
-@media (max-width: 520px) {
-  .item {
-    flex-direction: column;
-    gap: 6px;
-  }
+  margin-top: 6px;
 }

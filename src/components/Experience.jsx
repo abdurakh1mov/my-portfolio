@@ -10,13 +10,13 @@ export default function Experience() {
       <ol className={styles.list}>
         {t.experience.map((job) => (
           <li key={job.company} className={styles.item}>
-            <div className={styles.period}>{job.period}</div>
-            <div>
+            <div className={styles.itemHead}>
               <h3 className={styles.role}>
                 {job.role} · {job.company}
               </h3>
-              <p className={styles.summary}>{job.summary}</p>
+              <span className={styles.period}>{job.period}</span>
             </div>
+            <p className={styles.summary}>{job.summary}</p>
           </li>
         ))}
       </ol>
