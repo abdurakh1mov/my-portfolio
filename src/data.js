@@ -7,6 +7,7 @@
  */
 
 import aiacademyLogo from './assets/aiacademy-logo.png'
+import himayaLogo from './assets/himaya-logo.png'
 
 /* ---- Language-agnostic profile & links ---- */
 export const profile = {
@@ -31,15 +32,20 @@ export const socials = [
 export const appVisuals = {
   autouz: 'linear-gradient(135deg, #38bdf8, #a78bfa)',
   aiacademy: 'linear-gradient(135deg, #34d399, #5eead4)',
-  rentaBusiness: 'linear-gradient(135deg, #38bdf8, #5eead4)',
+  himaya: 'linear-gradient(135deg, #c59a5f, #0f2130)',
   topmaster: 'linear-gradient(135deg, #c084fc, #5eead4)',
   dachaturizm: 'linear-gradient(135deg, #5eead4, #38bdf8)',
   posox: 'linear-gradient(135deg, #5eead4, #c084fc)',
 }
 
-/* Real app-icon logos, keyed by project id. Cards fall back to the gradient above. */
+/*
+ * Real app-icon logos, keyed by project id. Cards fall back to the gradient
+ * above. `padded` puts the mark on a white tile (for transparent logos that
+ * would vanish on the dark card); full-bleed icons render edge to edge.
+ */
 export const appLogos = {
-  aiacademy: aiacademyLogo,
+  aiacademy: { src: aiacademyLogo, padded: true },
+  himaya: { src: himayaLogo },
 }
 
 /* Tech stack — names are the same in every language. */
@@ -129,12 +135,12 @@ export const content = {
           'LMS app for AI Academy (Tashkent) serving four roles — admin, mentor, student and annotator — with a student voice-recording flow that builds an Uzbek TTS/STT speech corpus.',
       },
       {
-        id: 'rentaBusiness',
-        name: 'Renta Business',
-        category: 'Fleet management',
-        rating: '4.6',
+        id: 'himaya',
+        name: 'Himaya',
+        category: 'Device insurance',
+        rating: '4.7',
         description:
-          'For car owners: add vehicles, approve or reject requests, manage trips and track a balance dashboard.',
+          'Device-insurance platform for the Uzbek market: agents register phones with IMEI checks and photo/video condition capture, while service staff assess claims and trigger payouts.',
       },
       {
         id: 'topmaster',
@@ -256,12 +262,12 @@ export const content = {
           'LMS-приложение AI Academy (Ташкент) с четырьмя ролями — админ, ментор, студент и аннотатор — и записью голоса студентами для узбекского TTS/STT-корпуса.',
       },
       {
-        id: 'rentaBusiness',
-        name: 'Renta Business',
-        category: 'Управление автопарком',
-        rating: '4.6',
+        id: 'himaya',
+        name: 'Himaya',
+        category: 'Страхование устройств',
+        rating: '4.7',
         description:
-          'Для владельцев авто: добавление машин, приём и отклонение заявок, управление поездками и панель баланса.',
+          'Платформа страхования смартфонов для Узбекистана: агенты регистрируют устройства с проверкой IMEI и фото/видеофиксацией состояния, сервисные сотрудники оценивают страховые случаи и запускают выплаты.',
       },
       {
         id: 'topmaster',

@@ -51,6 +51,10 @@
 }
 
 .logo {
+  object-fit: cover;
+}
+
+.logoPadded {
   background: #fff;
   object-fit: contain;
   padding: 4px;

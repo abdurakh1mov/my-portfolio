@@ -18,8 +18,10 @@ export default function Apps() {
             <div className={styles.cardHead}>
               {appLogos[app.id] ? (
                 <img
-                  className={`${styles.icon} ${styles.logo}`}
-                  src={appLogos[app.id]}
+                  className={`${styles.icon} ${styles.logo} ${
+                    appLogos[app.id].padded ? styles.logoPadded : ''
+                  }`}
+                  src={appLogos[app.id].src}
                   alt={`${app.name} logo`}
                 />
               ) : (
