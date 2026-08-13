@@ -146,9 +146,16 @@
   transform: translateX(-50%) translateY(-6px) rotate(-45deg);
 }
 
-/* ---- Mobile menu panel ---- */
+/* ---- Mobile menu panel (overlays the page, toggled by the burger) ---- */
 .mobileMenu {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - 68px);
+  max-height: calc(100dvh - 68px);
+  overflow-y: auto;
   border-bottom: 1px solid var(--border);
   background: rgba(9, 11, 22, 0.96);
   backdrop-filter: blur(12px);
@@ -169,14 +176,8 @@
   border-bottom: 1px solid var(--border);
 }
 
-.mobileLang {
-  display: flex;
-  justify-content: center;
-  padding: 18px 0 4px;
-}
-
 .mobileCta {
-  margin-top: 12px;
+  margin-top: 16px;
   text-align: center;
   font-weight: 600;
   color: var(--bg) !important;
@@ -188,15 +189,28 @@
 /* ---- Breakpoint: collapse to hamburger ---- */
 @media (max-width: 720px) {
   .links,
-  .actions {
+  .cta {
     display: none;
+  }
+
+  /* Keep the language switcher in the bar, next to the burger. */
+  .actions {
+    margin-left: auto;
   }
 
   .burger {
     display: block;
+    flex-shrink: 0;
   }
 
-  .mobileMenu {
+  /* Only the open menu is rendered; `hidden` handles the rest. */
+  .mobileOpen {
     display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .brand {
+    font-size: 16px;
   }
 }

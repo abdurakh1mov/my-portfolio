@@ -8,6 +8,7 @@
 
 import autouzIcon from './assets/autouz-icon.jpg'
 import aiacademyIcon from './assets/aiacademy-icon.jpg'
+import csogboardIcon from './assets/csogboard-icon.jpg'
 import himayaIcon from './assets/himaya-icon.jpg'
 import topmasterIcon from './assets/topmaster-icon.jpg'
 import yuktashishIcon from './assets/yuktashish-icon.jpg'
@@ -37,6 +38,7 @@ export const socials = [
 export const appVisuals = {
   autouz: 'linear-gradient(135deg, #38bdf8, #a78bfa)',
   aiacademy: 'linear-gradient(135deg, #34d399, #5eead4)',
+  csogboard: 'linear-gradient(135deg, #6366f1, #38bdf8)',
   himaya: 'linear-gradient(135deg, #c59a5f, #0f2130)',
   topmaster: 'linear-gradient(135deg, #c084fc, #5eead4)',
   yuktashish: 'linear-gradient(135deg, #fbbf24, #f97316)',
@@ -52,6 +54,7 @@ export const appVisuals = {
 export const appLogos = {
   autouz: { src: autouzIcon },
   aiacademy: { src: aiacademyIcon },
+  csogboard: { src: csogboardIcon },
   himaya: { src: himayaIcon },
   topmaster: { src: topmasterIcon },
   yuktashish: { src: yuktashishIcon },
@@ -63,6 +66,7 @@ export const appLogos = {
 export const appLinks = {
   autouz: 'https://apps.apple.com/uz/app/auto-uz-avtomobillar-olami/id1670951057',
   aiacademy: 'https://apps.apple.com/us/app/ovoz-ai-academy/id6795569313',
+  csogboard: 'https://apps.apple.com/us/app/csog-board/id6795915735',
   himaya: 'https://apps.apple.com/uz/app/himaya/id6796583412',
   topmaster: 'https://apps.apple.com/uz/app/topmaster/id6502838564',
   yuktashish: 'https://apps.apple.com/uz/app/yuktashish/id6768605504',
@@ -155,6 +159,13 @@ export const content = {
         category: 'Education / LMS',
         description:
           'LMS app for AI Academy (Tashkent) serving four roles — admin, mentor, student and annotator — with a student voice-recording flow that builds an Uzbek TTS/STT speech corpus.',
+      },
+      {
+        id: 'csogboard',
+        name: 'CSOG Board',
+        category: 'Team task board',
+        description:
+          'Mobile kanban for teams: boards with WIP limits and drag-and-drop cards, checklists, @mention comments and attachments, manager statistics — plus SMS notifications for assignments, deadlines and daily digests.',
       },
       {
         id: 'himaya',
@@ -286,6 +297,13 @@ export const content = {
         category: 'Образование / LMS',
         description:
           'LMS-приложение AI Academy (Ташкент) с четырьмя ролями — админ, ментор, студент и аннотатор — и записью голоса студентами для узбекского TTS/STT-корпуса.',
+      },
+      {
+        id: 'csogboard',
+        name: 'CSOG Board',
+        category: 'Канбан для команд',
+        description:
+          'Мобильный канбан для команд: доски с WIP-лимитами и перетаскиванием карточек, чек-листы, комментарии с @упоминаниями и вложения, статистика для руководителя — плюс SMS-уведомления о назначениях, сроках и ежедневный дайджест.',
       },
       {
         id: 'himaya',

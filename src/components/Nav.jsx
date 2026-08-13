@@ -86,7 +86,6 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <div className={styles.mobileLang}>{langSwitch}</div>
           <a href="#contact" className={styles.mobileCta} onClick={close}>
             {t.ui.hireMe}
           </a>
