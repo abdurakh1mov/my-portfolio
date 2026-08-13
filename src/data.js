@@ -6,6 +6,8 @@
  * shared across both languages.
  */
 
+import aiacademyLogo from './assets/aiacademy-logo.png'
+
 /* ---- Language-agnostic profile & links ---- */
 export const profile = {
   name: 'Qobil Abduraximov',
@@ -28,11 +30,16 @@ export const socials = [
  */
 export const appVisuals = {
   autouz: 'linear-gradient(135deg, #38bdf8, #a78bfa)',
-  renta: 'linear-gradient(135deg, #a78bfa, #38bdf8)',
+  aiacademy: 'linear-gradient(135deg, #34d399, #5eead4)',
   rentaBusiness: 'linear-gradient(135deg, #38bdf8, #5eead4)',
   topmaster: 'linear-gradient(135deg, #c084fc, #5eead4)',
   dachaturizm: 'linear-gradient(135deg, #5eead4, #38bdf8)',
   posox: 'linear-gradient(135deg, #5eead4, #c084fc)',
+}
+
+/* Real app-icon logos, keyed by project id. Cards fall back to the gradient above. */
+export const appLogos = {
+  aiacademy: aiacademyLogo,
 }
 
 /* Tech stack — names are the same in every language. */
@@ -59,7 +66,7 @@ export const stack = [
 ]
 
 /* Phone mock-ups shown in the hero (project ids). */
-export const heroPhones = ['autouz', 'renta', 'topmaster']
+export const heroPhones = ['autouz', 'aiacademy', 'topmaster']
 
 export const languages = [
   { code: 'en', label: 'EN' },
@@ -114,12 +121,12 @@ export const content = {
           'Marketplace where dealers and private sellers post listings; buyers search, filter, favorite and compare up to 20 cars.',
       },
       {
-        id: 'renta',
-        name: 'Renta',
-        category: 'Car rentals',
-        rating: '4.7',
+        id: 'aiacademy',
+        name: 'AI Academy',
+        category: 'Education / LMS',
+        rating: '4.8',
         description:
-          'Browse available cars, book rentals and track booking status in real time with reliable backend sync.',
+          'LMS app for AI Academy (Tashkent) serving four roles — admin, mentor, student and annotator — with a student voice-recording flow that builds an Uzbek TTS/STT speech corpus.',
       },
       {
         id: 'rentaBusiness',
@@ -241,12 +248,12 @@ export const content = {
           'Дилеры и частные продавцы публикуют объявления; покупателям — поиск, фильтры, избранное и сравнение до 20 автомобилей.',
       },
       {
-        id: 'renta',
-        name: 'Renta',
-        category: 'Аренда авто',
-        rating: '4.7',
+        id: 'aiacademy',
+        name: 'AI Academy',
+        category: 'Образование / LMS',
+        rating: '4.8',
         description:
-          'Просмотр доступных авто, оформление аренды и отслеживание статуса бронирования в реальном времени с надёжной синхронизацией.',
+          'LMS-приложение AI Academy (Ташкент) с четырьмя ролями — админ, ментор, студент и аннотатор — и записью голоса студентами для узбекского TTS/STT-корпуса.',
       },
       {
         id: 'rentaBusiness',

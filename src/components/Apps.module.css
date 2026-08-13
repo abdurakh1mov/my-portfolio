@@ -50,6 +50,12 @@
   flex-shrink: 0;
 }
 
+.logo {
+  background: #fff;
+  object-fit: contain;
+  padding: 4px;
+}
+
 .name {
   font-size: 17px;
   font-weight: 700;

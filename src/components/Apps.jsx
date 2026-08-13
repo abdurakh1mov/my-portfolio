@@ -1,4 +1,4 @@
-import { appVisuals } from '../data.js'
+import { appVisuals, appLogos } from '../data.js'
 import { useLang } from '../i18n.jsx'
 import styles from './Apps.module.css'
 
@@ -16,10 +16,18 @@ export default function Apps() {
         {t.apps.map((app) => (
           <article key={app.id} className={styles.card}>
             <div className={styles.cardHead}>
-              <div
-                className={styles.icon}
-                style={{ background: appVisuals[app.id] }}
-              />
+              {appLogos[app.id] ? (
+                <img
+                  className={`${styles.icon} ${styles.logo}`}
+                  src={appLogos[app.id]}
+                  alt={`${app.name} logo`}
+                />
+              ) : (
+                <div
+                  className={styles.icon}
+                  style={{ background: appVisuals[app.id] }}
+                />
+              )}
               <div>
                 <h3 className={styles.name}>{app.name}</h3>
                 <p className={styles.meta}>
