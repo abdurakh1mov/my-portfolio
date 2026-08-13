@@ -14,6 +14,7 @@ import topmasterIcon from './assets/topmaster-icon.jpg'
 import yuktashishIcon from './assets/yuktashish-icon.jpg'
 import yuktashishproIcon from './assets/yuktashishpro-icon.jpg'
 import shukronaIcon from './assets/shukrona-icon.jpg'
+import olbiletIcon from './assets/olbilet-icon.png'
 
 /* ---- Language-agnostic profile & links ---- */
 export const profile = {
@@ -44,6 +45,7 @@ export const appVisuals = {
   yuktashish: 'linear-gradient(135deg, #fbbf24, #f97316)',
   yuktashishpro: 'linear-gradient(135deg, #f97316, #0f2130)',
   shukrona: 'linear-gradient(135deg, #a78bfa, #f472b6)',
+  olbilet: 'linear-gradient(135deg, #f43f5e, #a78bfa)',
 }
 
 /*
@@ -60,6 +62,7 @@ export const appLogos = {
   yuktashish: { src: yuktashishIcon },
   yuktashishpro: { src: yuktashishproIcon },
   shukrona: { src: shukronaIcon },
+  olbilet: { src: olbiletIcon },
 }
 
 /* App Store links, keyed by project id. */
@@ -72,6 +75,8 @@ export const appLinks = {
   yuktashish: 'https://apps.apple.com/uz/app/yuktashish/id6768605504',
   yuktashishpro: 'https://apps.apple.com/uz/app/yuktashish-pro/id6768605769',
   shukrona: 'https://apps.apple.com/us/app/shukrona-academy-app/id6786992462',
+  // Not on the stores yet — link to the platform's website.
+  olbilet: 'https://olbilet.uz',
 }
 
 /* Tech stack — names are the same in every language. */
@@ -124,6 +129,7 @@ export const content = {
       exploreApps: 'Explore apps',
       getInTouch: 'Get in touch',
       viewOnStore: 'View on the App Store',
+      visitSite: 'Visit website',
     },
     hero: {
       lead: 'I build',
@@ -203,6 +209,13 @@ export const content = {
         description:
           'Closed e-learning platform for specialists working with autism (ASD): video courses with lessons, knowledge tests, progress tracking and certificates.',
       },
+      {
+        id: 'olbilet',
+        name: 'OlBilet',
+        category: 'Event ticketing',
+        description:
+          'Ticketing app for olbilet.uz — concerts, theater, sports and cinema in Uzbekistan: pick exact seats on an interactive venue map with realtime holds, pay by card and get QR + PDF tickets.',
+      },
     ],
     about: {
       title: 'About me',
@@ -262,6 +275,7 @@ export const content = {
       exploreApps: 'Смотреть приложения',
       getInTouch: 'Связаться',
       viewOnStore: 'Открыть в App Store',
+      visitSite: 'Открыть сайт',
     },
     hero: {
       lead: 'Я создаю',
@@ -340,6 +354,13 @@ export const content = {
         category: 'Образование / e-learning',
         description:
           'Закрытая образовательная платформа для специалистов по РАС: видеокурсы с уроками, тесты знаний, отслеживание прогресса и сертификаты.',
+      },
+      {
+        id: 'olbilet',
+        name: 'OlBilet',
+        category: 'Билеты на события',
+        description:
+          'Приложение платформы olbilet.uz — концерты, театр, спорт и кино в Узбекистане: выбор мест на интерактивной карте зала с бронированием в реальном времени, оплата картой и QR + PDF билеты.',
       },
     ],
     about: {

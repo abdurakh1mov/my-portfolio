@@ -46,7 +46,12 @@ export default function Apps() {
             </div>
             <p className={styles.desc}>{app.description}</p>
             {appLinks[app.id] && (
-              <span className={styles.storeLink}>{t.ui.viewOnStore} ↗</span>
+              <span className={styles.storeLink}>
+                {appLinks[app.id].includes('apps.apple.com')
+                  ? t.ui.viewOnStore
+                  : t.ui.visitSite}{' '}
+                ↗
+              </span>
             )}
           </a>
         ))}
