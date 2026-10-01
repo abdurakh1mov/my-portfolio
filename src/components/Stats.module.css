@@ -4,6 +4,13 @@
   gap: 16px;
 }
 
+/* Two-column phones: let the odd card out span the row instead of dangling. */
+@media (max-width: 535px) {
+  .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);

@@ -80,12 +80,46 @@
   line-height: 1.6;
 }
 
+/* Engineering note: what was technically interesting about the build. */
+.highlight {
+  margin-top: 12px;
+  padding-left: 12px;
+  border-left: 2px solid var(--accent);
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* Tags + store links sit at the bottom so they line up across a row. */
+.tags {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.tag {
+  border: 1px solid var(--border-strong);
+  background: var(--surface-strong);
+  color: var(--text-soft);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .cardLinks {
   margin-top: auto;
   padding-top: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 18px;
+}
+
+.tags + .cardLinks {
+  margin-top: 0;
 }
 
 .storeLink {

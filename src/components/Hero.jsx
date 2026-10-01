@@ -1,3 +1,4 @@
+import { profile } from '../data.js'
 import { useLang } from '../i18n.jsx'
 import styles from './Hero.module.css'
 
@@ -8,9 +9,17 @@ export default function Hero() {
   return (
     <section id="top" className={`section ${styles.hero}`}>
       <div className="container">
+        {profile.available && (
+          <p className={styles.badge}>
+            <span className={styles.badgeDot} aria-hidden="true" />
+            {ui.available}
+          </p>
+        )}
+
         <h1 className={styles.title}>
-          {hero.lead} <span className={styles.accent}>{hero.accent}</span>
+          {hero.lead}
           <br />
+          <span className={styles.accent}>{hero.accent}</span>
           {hero.trail}
         </h1>
 
@@ -20,6 +29,15 @@ export default function Hero() {
           <a href="#apps" className={styles.primary}>
             {ui.exploreApps}
           </a>
+          {profile.resume && (
+            <a
+              href={profile.resume}
+              className={styles.secondary}
+              download={profile.resumeFileName}
+            >
+              {ui.downloadResume}
+            </a>
+          )}
           <a href="#contact" className={styles.secondary}>
             {ui.getInTouch}
           </a>

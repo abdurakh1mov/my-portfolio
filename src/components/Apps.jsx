@@ -41,6 +41,18 @@ export default function Apps() {
                 </div>
               </div>
               <p className={styles.desc}>{app.description}</p>
+              {app.highlight && (
+                <p className={styles.highlight}>{app.highlight}</p>
+              )}
+              {app.tags?.length > 0 && (
+                <ul className={styles.tags}>
+                  {app.tags.map((tag) => (
+                    <li key={tag} className={styles.tag}>
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <div className={styles.cardLinks}>
                 {links.ios && (
                   <a

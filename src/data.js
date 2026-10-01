@@ -24,6 +24,12 @@ export const profile = {
   year: 2026,
   email: 'abduraximovqobil@mail.ru',
   phone: '+998 99 830 89 40',
+  // Résumé PDF lives in `public/`; vite.config.js sets __RESUME_FILE__ to its
+  // filename when the file exists, so the download buttons never point at a 404.
+  resume: __RESUME_FILE__
+    ? `${import.meta.env.BASE_URL}${__RESUME_FILE__}`
+    : null,
+  resumeFileName: __RESUME_FILE__,
 }
 
 export const socials = [
@@ -89,7 +95,8 @@ export const appLinks = {
   },
   topmaster: {
     ios: 'https://apps.apple.com/uz/app/topmaster/id6502838564',
-    android: 'https://play.google.com/store/apps/details?id=com.nest_app.ubarber',
+    android:
+      'https://play.google.com/store/apps/details?id=com.nest_app.ubarber',
   },
   yuktashish: {
     ios: 'https://apps.apple.com/uz/app/yuktashish/id6768605504',
@@ -97,38 +104,71 @@ export const appLinks = {
   },
   yuktashishpro: {
     ios: 'https://apps.apple.com/uz/app/yuktashish-pro/id6768605769',
-    android: 'https://play.google.com/store/apps/details?id=uz.yuktashipro.csog',
+    android:
+      'https://play.google.com/store/apps/details?id=uz.yuktashipro.csog',
   },
   shukrona: {
     ios: 'https://apps.apple.com/us/app/shukrona-academy-app/id6786992462',
-    android: 'https://play.google.com/store/apps/details?id=uz.shukrona.academy',
+    android:
+      'https://play.google.com/store/apps/details?id=uz.shukrona.academy',
   },
   olbilet: {
     android: 'https://play.google.com/store/apps/details?id=uz.olbilet.mobile',
   },
 }
 
-/* Tech stack — names are the same in every language. */
+/*
+ * Tech stack, grouped. Group titles are translated under
+ * `stackSection.groups` (keyed by id). Items are plain strings when the name
+ * is the same in every language, or `{ en, ru }` when it differs.
+ */
 export const stack = [
-  'Flutter',
-  'Dart',
-  'Bloc / Cubit',
-  'Provider',
-  'freezed',
-  'Clean Architecture',
-  'DDD',
-  'Chopper',
-  'Retrofit',
-  'REST APIs',
-  'Hive',
-  'Firebase',
-  'Android',
-  'Kotlin',
-  'Java',
-  'Jetpack Compose',
-  'Room',
-  'Dagger Hilt',
-  'Git',
+  {
+    id: 'mobile',
+    items: ['Flutter', 'Dart', 'Android', 'Kotlin', 'Java', 'Jetpack Compose'],
+  },
+  {
+    id: 'architecture',
+    items: [
+      'Clean Architecture',
+      'Domain-Driven Design (DDD)',
+      'MVVM',
+      'BLoC',
+      'Cubit',
+      'Provider',
+      'freezed',
+    ],
+  },
+  {
+    id: 'networking',
+    items: ['REST APIs', 'Chopper', 'Retrofit', 'WebSocket'],
+  },
+  {
+    id: 'di',
+    items: ['get_it', 'injectable', 'Dagger Hilt', 'go_router'],
+  },
+  {
+    id: 'data',
+    items: [
+      'Hive',
+      'Room',
+      'Firebase',
+      'Yandex Maps',
+      { en: 'Push Notifications', ru: 'Push-уведомления' },
+    ],
+  },
+  {
+    id: 'engineering',
+    items: [
+      'Git',
+      'GitHub',
+      { en: 'Code Reviews', ru: 'Код-ревью' },
+      { en: 'API Migrations', ru: 'Миграции API' },
+      { en: 'Localization', ru: 'Локализация' },
+      { en: 'Debugging', ru: 'Отладка' },
+      { en: 'Responsive UI', ru: 'Адаптивный UI' },
+    ],
+  },
 ]
 
 /* Phone mock-ups shown in the hero (project ids). */
@@ -154,145 +194,200 @@ export const content = {
       hireMe: 'Hire me',
       openMenu: 'Open menu',
       closeMenu: 'Close menu',
-      available: 'Available for work',
+      available: 'Available for remote opportunities worldwide',
       exploreApps: 'Explore apps',
+      downloadResume: 'Download resume',
       getInTouch: 'Get in touch',
       linkAppStore: 'App Store',
       linkGooglePlay: 'Google Play',
       linkWebsite: 'Website',
     },
+    // Rendered as "{lead}<br />{accent}{trail}" — `trail` carries its own
+    // leading space / hyphen.
     hero: {
-      lead: 'I build',
+      lead: 'I build production',
       accent: 'Flutter',
-      trail: 'apps',
+      trail: ' apps',
       tagline:
-        'Flutter & Android developer crafting scalable, production-ready mobile apps with Clean Architecture, DDD and reactive state management. Booking systems, rental platforms and management tools — shipped and in production.',
+        'Flutter & Android developer with 4+ years of software development experience, shipping production mobile apps for Android and iOS. Clean Architecture, DDD, BLoC/Cubit, REST APIs, realtime workflows, Firebase and native Android.',
     },
-    // NOTE: download count & average rating aren't on the résumé — kept as mock/placeholder values.
+    // Only numbers the content below backs up: the featured apps listed here
+    // and the product domains they cover.
     stats: [
-      { value: '6+', label: 'years' },
-      { value: '14', label: 'apps' },
-      { value: '2M+', label: 'downloads' },
-      { value: '4.8', label: 'avg rating' },
+      { value: '4+', label: 'years of experience' },
+      { value: '9', label: 'production apps' },
+      { value: '7', label: 'product domains' },
     ],
     appsSection: {
-      title: 'Featured apps',
+      title: 'Featured production apps',
       subtitle: "A selection of what I've shipped.",
     },
     // Ratings come from the App Store; apps without enough reviews yet show none.
+    // `highlight` is the engineering note, `tags` the compact stack / concept chips.
     apps: [
       {
         id: 'autouz',
         name: 'Auto.uz',
-        category: 'Car marketplace',
+        category: 'Automotive Marketplace',
         rating: '4.6',
         description:
-          "Uzbekistan's car marketplace: search, filter and compare up to 20 cars, post and promote listings, browse dealers — plus insurance, EV-charging and fuel-station services and a vertical video feed.",
+          "Uzbekistan's automotive marketplace for searching, filtering and comparing cars, publishing listings and browsing dealers, with additional insurance, EV-charging, fuel-station and vertical-video experiences.",
+        highlight:
+          'Migrated the comparison and home modules to REST API v2 with updated data models, typed errors and a post-login bulk merge, alongside push notifications and Uzbek/Russian/English localization.',
+        tags: ['Flutter', 'BLoC/Cubit', 'freezed', 'Firebase', 'Yandex Maps'],
       },
       {
         id: 'aiacademy',
         name: 'Ovoz — AI Academy',
         category: 'Education / LMS',
         description:
-          'LMS app for AI Academy (Tashkent) serving four roles — admin, mentor, student and annotator — with a student voice-recording flow that builds an Uzbek TTS/STT speech corpus.',
+          'LMS application for AI Academy supporting admin, mentor, student and annotator roles, including a student voice-recording workflow used to build an Uzbek TTS/STT speech corpus.',
+        highlight:
+          'Role-based flows for four user types, plus an in-app voice-recording workflow that feeds the speech corpus.',
+        tags: ['Flutter', 'BLoC/Cubit', 'Firebase', 'REST APIs'],
       },
       {
         id: 'csogboard',
         name: 'CSOG Board',
-        category: 'Team task board',
+        category: 'Team Task Board',
         description:
-          'Mobile kanban for teams: boards with WIP limits and drag-and-drop cards, checklists, @mention comments and attachments, manager statistics — plus SMS notifications for assignments, deadlines and daily digests.',
+          'Mobile Kanban platform for teams with WIP limits, drag-and-drop cards, checklists, @mention comments, attachments, manager statistics and SMS notifications for assignments, deadlines and daily digests.',
+        tags: ['Flutter', 'Kanban', 'Drag & drop', 'SMS notifications'],
       },
       {
         id: 'himaya',
         name: 'Himaya',
-        category: 'Device insurance',
+        category: 'Device Insurance',
         description:
-          'Device-insurance platform for the Uzbek market: agents register phones with IMEI checks and photo/video condition capture, while service staff assess claims and trigger payouts.',
+          'Device-insurance platform for the Uzbek market with IMEI verification, photo/video device-condition capture, claim assessment and payout workflows.',
+        tags: ['IMEI verification', 'Photo/video capture', 'Claims & payouts'],
       },
       {
         id: 'topmaster',
         name: 'TopMaster',
-        category: 'Barber booking',
+        category: 'Barber Booking',
         rating: '4.6',
         description:
-          'Two-sided barber booking marketplace: clients find barbershops on the map and book appointments, while barbers manage schedules, client records, SMS reminders and revenue stats.',
+          'Two-sided barber booking marketplace where clients discover barbershops on a map and book appointments while barbers manage schedules, client records, SMS reminders and revenue statistics.',
+        tags: ['Flutter', 'DDD', 'BLoC', 'Provider', 'Chopper', 'Retrofit'],
       },
       {
         id: 'yuktashish',
         name: 'YukTashish',
-        category: 'Logistics / delivery',
+        category: 'Logistics / Delivery',
         description:
-          'Cargo delivery app for Uzbekistan: set pickup and drop-off points on the map, choose vehicle and cargo type, then track the driver live and chat in real time.',
+          'Cargo delivery application where customers select pickup and drop-off points on a map, choose vehicle and cargo types, track drivers live and communicate through realtime chat.',
+        highlight:
+          'Map-based pickup and drop-off selection with realtime flows over WebSocket: live driver tracking and in-app chat.',
+        tags: [
+          'Flutter',
+          'Maps',
+          'Live location',
+          'WebSocket',
+          'Realtime chat',
+        ],
       },
       {
         id: 'yuktashishpro',
         name: 'YukTashish Pro',
-        category: 'Logistics / driver app',
+        category: 'Logistics / Driver App',
         description:
-          'Driver side of the YukTashish platform: accept orders, run a step-by-step delivery flow, stream live location, manage wallet and payout cards, and chat with customers.',
+          'Driver application for accepting delivery orders, completing a step-by-step delivery lifecycle, streaming live location, managing wallet and payout cards, and chatting with customers.',
+        tags: ['Flutter', 'Live location', 'Delivery lifecycle', 'Wallet'],
       },
       {
         id: 'shukrona',
         name: 'Shukrona Academy',
-        category: 'Education / e-learning',
+        category: 'Education / E-learning',
         description:
-          'Closed e-learning platform for specialists working with autism (ASD): video courses with lessons, knowledge tests, progress tracking and certificates.',
+          'Closed e-learning platform for specialists working with autism (ASD), including video courses, lessons, knowledge tests, progress tracking and certificates.',
+        tags: ['Flutter', 'Video courses', 'Knowledge tests', 'Certificates'],
       },
       {
         id: 'olbilet',
         name: 'OlBilet',
-        category: 'Event ticketing',
+        category: 'Event Ticketing',
         description:
-          'Ticketing app for olbilet.uz — concerts, theater, sports and cinema in Uzbekistan: pick exact seats on an interactive venue map with realtime holds, pay by card and get QR + PDF tickets.',
+          'Mobile ticketing application for concerts, theater, sports and cinema in Uzbekistan, with interactive venue seat selection, realtime seat holds, card payments and QR/PDF tickets.',
+        highlight:
+          'Custom interactive seat map: exact-seat selection on the venue plan, with seat holds kept in sync in realtime.',
+        tags: [
+          'Flutter',
+          'Custom seat map',
+          'Realtime seat holds',
+          'QR/PDF tickets',
+        ],
       },
     ],
     about: {
       title: 'About me',
       paragraphs: [
-        "I'm Qobil — a Flutter & Android developer focused on scalable architecture, clean code and reliable API integration.",
-        'I build cross-platform mobile products end to end: Clean Architecture and DDD, reactive state management with Bloc/Cubit and Provider, REST integration via Chopper and Retrofit, and local storage with Hive and Room. I have shipped multiple commercial apps — booking systems, rental platforms and management tools — and I care about performance, teamwork and continuous improvement.',
+        'Flutter Developer with 4+ years of software development experience building and shipping production mobile applications for Android and iOS. Experienced with BLoC/Cubit, Clean Architecture, Domain-Driven Design, REST APIs, realtime WebSocket workflows, Firebase, local persistence, and native Android development.',
+        'Built commercial products across automotive marketplaces, logistics, education, ticketing, booking, insurance, and team-management domains. Comfortable collaborating with backend engineers, evolving API contracts and data models, debugging production features, and delivering maintainable cross-platform experiences.',
       ],
     },
     stackSection: {
-      title: 'My stack',
+      title: 'Tech stack',
+      groups: {
+        mobile: 'Mobile Development',
+        architecture: 'Architecture & State Management',
+        networking: 'Networking & APIs',
+        di: 'Dependency Injection & Navigation',
+        data: 'Data & Platform Services',
+        engineering: 'Engineering',
+      },
     },
     experienceSection: {
       title: 'Experience',
     },
     experience: [
       {
-        period: 'March 2026 — Now',
+        period: 'March 2026 – Present',
         role: 'Flutter Developer',
         company: 'CSOG',
-        summary:
-          "Building the company's mobile products end to end: Ovoz — AI Academy LMS, CSOG Board team kanban, YukTashish & YukTashish Pro logistics apps, Shukrona Academy e-learning and the OlBilet ticketing app with a custom seat-map engine; Bloc/Cubit, go_router, get_it/injectable, WebSocket realtime, Firebase.",
+        highlights: [
+          'Build production mobile products end to end across education, logistics, team collaboration, and ticketing.',
+          'Use BLoC/Cubit, go_router, get_it/injectable, WebSocket realtime flows, and Firebase across multiple applications.',
+          'Delivered Ovoz — AI Academy, CSOG Board, YukTashish / YukTashish Pro, Shukrona Academy, and OlBilet, including a custom interactive seat-map flow.',
+        ],
       },
       {
-        period: 'Feb 2026 — Now',
+        period: 'February 2026 – Present',
         role: 'Flutter Developer',
         company: 'Auto.uz',
-        summary:
-          'Migrated comparison & home modules to v2 API with typed errors and post-login bulk-merge; Bloc/Cubit + freezed, Firebase, push and Yandex Maps with uz/ru/en localization.',
+        highlights: [
+          'Migrated comparison and home modules to API v2 with updated data models, typed errors, and post-login bulk merge.',
+          'Build and maintain marketplace features using BLoC/Cubit + freezed, Firebase, push notifications, Yandex Maps, and Uzbek/Russian/English localization.',
+        ],
       },
       {
-        period: 'June 2024 — May 2025',
+        period: 'June 2024 – May 2025',
         role: 'Flutter Developer',
-        company: 'TopMaster tech',
-        summary:
-          'Built scalable architecture with Domain-Driven Design, managed state with Bloc and Provider, and integrated APIs with Chopper and Retrofit.',
+        company: 'TopMaster Tech',
+        highlights: [
+          'Built scalable architecture using Domain-Driven Design.',
+          'Managed application state with BLoC and Provider.',
+          'Integrated backend APIs using Chopper and Retrofit for a two-sided barber booking marketplace.',
+        ],
       },
       {
-        period: 'Oct 2022 — May 2024',
-        role: 'Software Engineer',
+        period: 'October 2022 – May 2024',
+        role: 'Android Developer',
         company: 'DataSite Technology',
-        summary:
-          'Android + Flutter: shared large datasets with backend, dependency injection with Dagger Hilt, optimized Room storage and built Jetpack Compose UI modules.',
+        highlights: [
+          'Developed native Android functionality using Kotlin.',
+          'Built Jetpack Compose UI modules.',
+          'Handled large data flows between Android clients and backend services.',
+          'Used Dagger Hilt for dependency injection.',
+          'Optimized local persistence using Room.',
+        ],
       },
     ],
     contact: {
       title: "Let's build something",
-      subtitle: 'Available for Flutter / Android roles and freelance projects.',
+      subtitle:
+        'Available for remote Flutter / Mobile Engineer roles worldwide and freelance projects.',
+      location: 'Tashkent, Uzbekistan',
       copyright: 'Built with React.',
     },
   },
@@ -308,29 +403,30 @@ export const content = {
       hireMe: 'Нанять меня',
       openMenu: 'Открыть меню',
       closeMenu: 'Закрыть меню',
-      available: 'Открыт к работе',
+      available: 'Открыт к удалённой работе по всему миру',
       exploreApps: 'Смотреть приложения',
+      downloadResume: 'Скачать резюме',
       getInTouch: 'Связаться',
       linkAppStore: 'App Store',
       linkGooglePlay: 'Google Play',
       linkWebsite: 'Сайт',
     },
     hero: {
-      lead: 'Я создаю',
+      lead: 'Я создаю продакшн',
       accent: 'Flutter',
-      trail: 'приложения',
+      trail: '-приложения',
       tagline:
-        'Flutter и Android разработчик. Создаю масштабируемые продакшн-приложения на Clean Architecture, DDD и реактивном управлении состоянием. Системы бронирования, платформы аренды и инструменты управления — в продакшене.',
+        'Flutter- и Android-разработчик с опытом разработки ПО более 4 лет: выпускаю продакшн-приложения для Android и iOS. Clean Architecture, DDD, BLoC/Cubit, REST API, realtime-сценарии, Firebase и нативная Android-разработка.',
     },
-    // ПРИМ.: загрузки и средний рейтинг отсутствуют в резюме — оставлены как заглушки.
+    // Только цифры, подтверждённые контентом ниже: приложения из списка
+    // и продуктовые направления, которые они покрывают.
     stats: [
-      { value: '6+', label: 'лет опыта' },
-      { value: '14', label: 'приложений' },
-      { value: '2M+', label: 'загрузок' },
-      { value: '4.8', label: 'ср. рейтинг' },
+      { value: '4+', label: 'лет опыта' },
+      { value: '9', label: 'приложений в продакшене' },
+      { value: '7', label: 'продуктовых направлений' },
     ],
     appsSection: {
-      title: 'Проекты',
+      title: 'Приложения в продакшене',
       subtitle: 'Подборка того, что я выпустил.',
     },
     // Рейтинги взяты из App Store; у приложений без отзывов рейтинг не показывается.
@@ -338,31 +434,39 @@ export const content = {
       {
         id: 'autouz',
         name: 'Auto.uz',
-        category: 'Маркетплейс авто',
+        category: 'Автомобильный маркетплейс',
         rating: '4.6',
         description:
-          'Автомаркетплейс Узбекистана: поиск, фильтры и сравнение до 20 автомобилей, публикация и продвижение объявлений, каталог дилеров — плюс страхование, зарядки для электромобилей и вертикальная видеолента.',
+          'Автомобильный маркетплейс Узбекистана: поиск, фильтрация и сравнение автомобилей, публикация объявлений и каталог дилеров, а также страхование, зарядные станции для электромобилей, АЗС и вертикальные видео.',
+        highlight:
+          'Перевёл модули сравнения и главного экрана на REST API v2: обновлённые модели данных, типизированные ошибки и bulk-merge после входа, а также push-уведомления и локализация на узбекский, русский и английский.',
+        tags: ['Flutter', 'BLoC/Cubit', 'freezed', 'Firebase', 'Yandex Maps'],
       },
       {
         id: 'aiacademy',
         name: 'Ovoz — AI Academy',
         category: 'Образование / LMS',
         description:
-          'LMS-приложение AI Academy (Ташкент) с четырьмя ролями — админ, ментор, студент и аннотатор — и записью голоса студентами для узбекского TTS/STT-корпуса.',
+          'LMS-приложение AI Academy с ролями администратора, ментора, студента и аннотатора, включая запись голоса студентами для формирования узбекского речевого корпуса TTS/STT.',
+        highlight:
+          'Ролевые сценарии для четырёх типов пользователей и запись голоса в приложении, пополняющая речевой корпус.',
+        tags: ['Flutter', 'BLoC/Cubit', 'Firebase', 'REST API'],
       },
       {
         id: 'csogboard',
         name: 'CSOG Board',
-        category: 'Канбан для команд',
+        category: 'Канбан-доска для команд',
         description:
-          'Мобильный канбан для команд: доски с WIP-лимитами и перетаскиванием карточек, чек-листы, комментарии с @упоминаниями и вложения, статистика для руководителя — плюс SMS-уведомления о назначениях, сроках и ежедневный дайджест.',
+          'Мобильная канбан-платформа для команд: WIP-лимиты, перетаскивание карточек, чек-листы, комментарии с @упоминаниями, вложения, статистика для руководителей и SMS-уведомления о назначениях, дедлайнах и ежедневных дайджестах.',
+        tags: ['Flutter', 'Канбан', 'Drag & drop', 'SMS-уведомления'],
       },
       {
         id: 'himaya',
         name: 'Himaya',
         category: 'Страхование устройств',
         description:
-          'Платформа страхования смартфонов для Узбекистана: агенты регистрируют устройства с проверкой IMEI и фото/видеофиксацией состояния, сервисные сотрудники оценивают страховые случаи и запускают выплаты.',
+          'Платформа страхования устройств для рынка Узбекистана: проверка IMEI, фото- и видеофиксация состояния устройства, оценка страховых случаев и выплаты.',
+        tags: ['Проверка IMEI', 'Фото- и видеофиксация', 'Страховые выплаты'],
       },
       {
         id: 'topmaster',
@@ -370,83 +474,121 @@ export const content = {
         category: 'Запись к барберам',
         rating: '4.6',
         description:
-          'Двусторонний маркетплейс барбер-записи: клиенты находят барбершопы на карте и записываются, а барберы управляют расписанием, клиентской базой, SMS-напоминаниями и статистикой дохода.',
+          'Двусторонний маркетплейс записи к барберам: клиенты находят барбершопы на карте и записываются на приём, а барберы управляют расписанием, клиентской базой, SMS-напоминаниями и статистикой доходов.',
+        tags: ['Flutter', 'DDD', 'BLoC', 'Provider', 'Chopper', 'Retrofit'],
       },
       {
         id: 'yuktashish',
         name: 'YukTashish',
         category: 'Логистика / доставка',
         description:
-          'Приложение грузоперевозок для Узбекистана: точки погрузки и доставки на карте, выбор транспорта и типа груза, живое отслеживание водителя и чат в реальном времени.',
+          'Приложение для грузоперевозок: клиенты выбирают точки погрузки и выгрузки на карте, тип транспорта и груза, отслеживают водителя в реальном времени и общаются в realtime-чате.',
+        highlight:
+          'Выбор точек погрузки и выгрузки на карте и realtime-сценарии через WebSocket: живое отслеживание водителя и чат в приложении.',
+        tags: [
+          'Flutter',
+          'Карты',
+          'Живая геолокация',
+          'WebSocket',
+          'Realtime-чат',
+        ],
       },
       {
         id: 'yuktashishpro',
         name: 'YukTashish Pro',
-        category: 'Логистика / для водителей',
+        category: 'Логистика / приложение водителя',
         description:
-          'Приложение водителя платформы YukTashish: приём заказов, пошаговый процесс доставки, трансляция геопозиции, кошелёк и карты для выплат, чат с клиентами.',
+          'Приложение для водителей: приём заказов на доставку, пошаговый цикл доставки, трансляция геопозиции в реальном времени, управление кошельком и картами для выплат, чат с клиентами.',
+        tags: ['Flutter', 'Живая геолокация', 'Цикл доставки', 'Кошелёк'],
       },
       {
         id: 'shukrona',
         name: 'Shukrona Academy',
         category: 'Образование / e-learning',
         description:
-          'Закрытая образовательная платформа для специалистов по РАС: видеокурсы с уроками, тесты знаний, отслеживание прогресса и сертификаты.',
+          'Закрытая e-learning-платформа для специалистов, работающих с аутизмом (РАС): видеокурсы, уроки, тесты знаний, отслеживание прогресса и сертификаты.',
+        tags: ['Flutter', 'Видеокурсы', 'Тесты знаний', 'Сертификаты'],
       },
       {
         id: 'olbilet',
         name: 'OlBilet',
-        category: 'Билеты на события',
+        category: 'Билеты на мероприятия',
         description:
-          'Приложение платформы olbilet.uz — концерты, театр, спорт и кино в Узбекистане: выбор мест на интерактивной карте зала с бронированием в реальном времени, оплата картой и QR + PDF билеты.',
+          'Мобильное приложение для покупки билетов на концерты, в театр, на спорт и в кино в Узбекистане: интерактивный выбор мест на схеме зала, удержание мест в реальном времени, оплата картой и билеты в формате QR/PDF.',
+        highlight:
+          'Собственная интерактивная схема зала: выбор конкретных мест на плане площадки с синхронизацией удержания мест в реальном времени.',
+        tags: ['Flutter', 'Схема зала', 'Удержание мест', 'QR/PDF-билеты'],
       },
     ],
     about: {
       title: 'Обо мне',
       paragraphs: [
-        'Я Qobil — Flutter и Android разработчик. Фокус на масштабируемой архитектуре, чистом коде и надёжной интеграции API.',
-        'Создаю кроссплатформенные мобильные продукты от и до: Clean Architecture и DDD, реактивное управление состоянием через Bloc/Cubit и Provider, интеграция REST через Chopper и Retrofit, локальное хранение на Hive и Room. Выпустил несколько коммерческих приложений — системы бронирования, платформы аренды и инструменты управления. Ценю производительность, командную работу и постоянное развитие.',
+        'Flutter-разработчик с опытом разработки ПО более 4 лет: создаю и выпускаю продакшн-приложения для Android и iOS. Работаю с BLoC/Cubit, Clean Architecture, Domain-Driven Design, REST API, realtime-сценариями на WebSocket, Firebase, локальным хранением данных и нативной Android-разработкой.',
+        'Создавал коммерческие продукты в сферах автомобильных маркетплейсов, логистики, образования, продажи билетов, бронирования, страхования и управления командами. Уверенно взаимодействую с backend-инженерами, развиваю API-контракты и модели данных, отлаживаю продакшн-функциональность и создаю поддерживаемые кроссплатформенные решения.',
       ],
     },
     stackSection: {
-      title: 'Мой стек',
+      title: 'Технологический стек',
+      groups: {
+        mobile: 'Мобильная разработка',
+        architecture: 'Архитектура и управление состоянием',
+        networking: 'Сеть и API',
+        di: 'Внедрение зависимостей и навигация',
+        data: 'Данные и платформенные сервисы',
+        engineering: 'Инженерные практики',
+      },
     },
     experienceSection: {
       title: 'Опыт',
     },
     experience: [
       {
-        period: 'Март 2026 — сейчас',
-        role: 'Flutter разработчик',
+        period: 'Март 2026 – настоящее время',
+        role: 'Flutter-разработчик',
         company: 'CSOG',
-        summary:
-          'Разрабатываю мобильные продукты компании: LMS Ovoz — AI Academy, командный канбан CSOG Board, логистические приложения YukTashish и YukTashish Pro, платформу Shukrona Academy и билетное приложение OlBilet с собственным движком карты зала; Bloc/Cubit, go_router, get_it/injectable, WebSocket, Firebase.',
+        highlights: [
+          'Создаю продакшн мобильные продукты от и до в сферах образования, логистики, командной работы и продажи билетов.',
+          'Использую BLoC/Cubit, go_router, get_it/injectable, realtime-сценарии на WebSocket и Firebase в нескольких приложениях.',
+          'Выпустил Ovoz — AI Academy, CSOG Board, YukTashish / YukTashish Pro, Shukrona Academy и OlBilet, включая собственный сценарий с интерактивной схемой зала.',
+        ],
       },
       {
-        period: 'Фев 2026 — сейчас',
-        role: 'Flutter разработчик',
+        period: 'Февраль 2026 – настоящее время',
+        role: 'Flutter-разработчик',
         company: 'Auto.uz',
-        summary:
-          'Мигрировал модули сравнения и главного экрана на v2 API с типизированными ошибками и bulk-merge после логина; Bloc/Cubit + freezed, Firebase, push и Yandex Maps с локализацией uz/ru/en.',
+        highlights: [
+          'Перевёл модули сравнения и главного экрана на API v2: обновлённые модели данных, типизированные ошибки и bulk-merge после входа.',
+          'Разрабатываю и поддерживаю функциональность маркетплейса: BLoC/Cubit + freezed, Firebase, push-уведомления, Yandex Maps и локализация на узбекский, русский и английский.',
+        ],
       },
       {
-        period: 'Июнь 2024 — Май 2025',
-        role: 'Flutter разработчик',
-        company: 'TopMaster tech',
-        summary:
-          'Масштабируемая архитектура на Domain-Driven Design, управление состоянием через Bloc и Provider, интеграция API через Chopper и Retrofit.',
+        period: 'Июнь 2024 – май 2025',
+        role: 'Flutter-разработчик',
+        company: 'TopMaster Tech',
+        highlights: [
+          'Построил масштабируемую архитектуру на основе Domain-Driven Design.',
+          'Управлял состоянием приложения с помощью BLoC и Provider.',
+          'Интегрировал backend API через Chopper и Retrofit для двустороннего маркетплейса записи к барберам.',
+        ],
       },
       {
-        period: 'Окт 2022 — Май 2024',
-        role: 'Software Engineer',
+        period: 'Октябрь 2022 – май 2024',
+        role: 'Android-разработчик',
         company: 'DataSite Technology',
-        summary:
-          'Android + Flutter: работа с большими датасетами и backend, dependency injection через Dagger Hilt, оптимизация Room и UI-модули на Jetpack Compose.',
+        highlights: [
+          'Разрабатывал нативную Android-функциональность на Kotlin.',
+          'Создавал UI-модули на Jetpack Compose.',
+          'Работал с большими потоками данных между Android-клиентами и backend-сервисами.',
+          'Использовал Dagger Hilt для внедрения зависимостей.',
+          'Оптимизировал локальное хранение данных с помощью Room.',
+        ],
       },
     ],
     contact: {
       title: 'Давайте что-нибудь построим',
-      subtitle: 'Открыт к позициям Flutter / Android и фриланс-проектам.',
+      subtitle:
+        'Открыт к удалённым позициям Flutter / Mobile Engineer по всему миру и фриланс-проектам.',
+      location: 'Ташкент, Узбекистан',
       copyright: 'Сделано на React.',
     },
   },

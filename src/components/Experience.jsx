@@ -16,7 +16,11 @@ export default function Experience() {
               </h3>
               <span className={styles.period}>{job.period}</span>
             </div>
-            <p className={styles.summary}>{job.summary}</p>
+            <ul className={styles.highlights}>
+              {job.highlights.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
           </li>
         ))}
       </ol>

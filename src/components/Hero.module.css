@@ -3,12 +3,37 @@
   padding-top: clamp(48px, 8vw, 90px);
 }
 
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18);
+}
+
 .title {
   font-weight: 800;
-  font-size: clamp(40px, 8vw, 84px);
+  font-size: clamp(36px, 7.4vw, 84px);
   letter-spacing: -0.03em;
   margin: 0 auto 24px;
-  max-width: 12ch;
+  overflow-wrap: break-word;
 }
 
 .accent {
@@ -22,7 +47,7 @@
   font-size: clamp(16px, 2.4vw, 19px);
   line-height: 1.7;
   color: var(--text-muted);
-  max-width: 600px;
+  max-width: 660px;
   margin: 0 auto 36px;
 }
 

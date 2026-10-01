@@ -42,10 +42,28 @@
 .role {
   font-size: 17px;
   font-weight: 700;
+  line-height: 1.25;
 }
 
-.summary {
+/* Long date ranges (e.g. Russian) may wrap on the narrowest phones. */
+@media (max-width: 400px) {
+  .period {
+    white-space: normal;
+    text-align: right;
+  }
+}
+
+.highlights {
   color: var(--text-muted);
   font-size: 14px;
-  margin-top: 6px;
+  margin-top: 10px;
+  padding-left: 18px;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlights li::marker {
+  color: var(--accent);
 }

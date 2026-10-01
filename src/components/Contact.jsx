@@ -15,6 +15,15 @@ export default function Contact() {
           <a href={`mailto:${profile.email}`} className={styles.email}>
             {profile.email}
           </a>
+          {profile.resume && (
+            <a
+              href={profile.resume}
+              className={styles.social}
+              download={profile.resumeFileName}
+            >
+              {t.ui.downloadResume}
+            </a>
+          )}
           {socials.map((social) => (
             <a
               key={social.label}
@@ -29,7 +38,8 @@ export default function Contact() {
         </div>
 
         <p className={styles.copyright}>
-          © {profile.year} {profile.name}. {t.contact.copyright}
+          {t.contact.location}
+          <br />© {profile.year} {profile.name}. {t.contact.copyright}
         </p>
       </div>
     </footer>

@@ -19,6 +19,14 @@ All content lives in one place: **`src/data.js`**. Edit your name, tagline,
 apps, stats, experience, stack, and social links there — no component changes
 needed.
 
+## Résumé download
+
+Drop the PDF at **`public/Qobil_Abduraximov_Flutter_Resume.pdf`** (keep that
+exact filename). The "Download resume" buttons in the hero and footer appear
+automatically on the next `npm run dev` / `npm run build`; while the file is
+missing they stay hidden, so the site never links to a 404. To update the
+résumé, overwrite the file.
+
 ## Structure
 
 ```
@@ -33,7 +41,7 @@ src/
     Stats      # key numbers
     Apps       # featured apps grid
     About      # bio
-    Stack      # tech tags
+    Stack      # grouped tech tags
     Experience # work history
     Contact    # footer with email + socials
 ```
