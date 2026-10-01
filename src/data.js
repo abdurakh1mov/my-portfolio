@@ -68,7 +68,7 @@ export const appLogos = {
 /*
  * Store / web links, keyed by project id. Each entry may have `ios`,
  * `android` and/or `web` — cards render a badge per available link.
- * Missing `android` = the app is still in Play Store review.
+ * Missing `ios` = the app is still in App Store review.
  */
 export const appLinks = {
   autouz: {
@@ -77,9 +77,11 @@ export const appLinks = {
   },
   aiacademy: {
     ios: 'https://apps.apple.com/us/app/ovoz-ai-academy/id6795569313',
+    android: 'https://play.google.com/store/apps/details?id=uz.aiacademy.csog',
   },
   csogboard: {
     ios: 'https://apps.apple.com/us/app/csog-board/id6795915735',
+    android: 'https://play.google.com/store/apps/details?id=uz.board.csog',
   },
   himaya: {
     ios: 'https://apps.apple.com/uz/app/himaya/id6796583412',
@@ -102,7 +104,7 @@ export const appLinks = {
     android: 'https://play.google.com/store/apps/details?id=uz.shukrona.academy',
   },
   olbilet: {
-    web: 'https://olbilet.uz',
+    android: 'https://play.google.com/store/apps/details?id=uz.olbilet.mobile',
   },
 }
 
