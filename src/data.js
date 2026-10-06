@@ -34,8 +34,8 @@ export const profile = {
 
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/abdurakh1mov' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/qobil-abduraximov' },
-  { label: 'Telegram', href: 'https://t.me/abduraximovqobil' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/qobil/' },
+  { label: 'Telegram', href: 'https://t.me/abdurakh1mov1' },
 ]
 
 /**
